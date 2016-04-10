@@ -14,13 +14,6 @@ public class BookResult {
 		this.themes = new ArrayList<ThemeResult>();
 	}
 	
-	public BookResult(String book, List<ChapterResult> chapters, List<ThemeResult> themes){
-		this.book = book;
-		this.chapters = chapters;
-		this.themes = themes;
-		ThemeResult.calculatePercentage(themes);
-	}
-	
 	public void addToken(String themeName, String chapterName, String tokenName, long count){
 		ChapterResult chapter = chapters.stream().filter(c -> c.getTitle().equals(chapterName))
 									  		.findFirst().orElse(null);
@@ -31,8 +24,9 @@ public class BookResult {
 		
 		chapter.addToken(themeName,  tokenName, count);
 		
-		ThemeResult theme = themes.stream().filter(t -> t.getName().equals(themeName))
-											.findFirst().orElse(null);
+		ThemeResult theme = themes.stream()
+								  .filter(t -> t.getName().equals(themeName))
+								  .findFirst().orElse(null);
 		if(theme == null){
 			theme = new ThemeResult(themeName);
 			themes.add(theme);

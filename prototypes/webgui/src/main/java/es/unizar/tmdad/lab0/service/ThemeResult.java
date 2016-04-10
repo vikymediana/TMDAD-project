@@ -14,11 +14,6 @@ public class ThemeResult {
 		tokens = new ArrayList<TokenResult>();
 		percentage = 1;
 	}
-
-	public ThemeResult(String name, List<TokenResult> tokens){
-		this.name = name;
-		this.tokens = tokens;
-	}
 	
 	public static void calculatePercentage(List<ThemeResult> themes){
 		long totalcount = 0;
@@ -31,8 +26,9 @@ public class ThemeResult {
 	}
 	
 	public void addToken(String tokenName, long count){
-		TokenResult token = tokens.stream().filter(t -> t.getWord().equals(tokenName))
-		  						.findFirst().orElse(null);
+		TokenResult token = tokens.stream()
+								  .filter(t -> t.getWord().equals(tokenName))
+		  						  .findFirst().orElse(null);
 		if(token == null){
 			token = new TokenResult(tokenName);
 			tokens.add(token);

@@ -12,15 +12,10 @@ public class ChapterResult {
 		this.themes = new ArrayList<ThemeResult>();
 	}
 	
-	public ChapterResult(String title, List<ThemeResult> themes) {
-		this.title = title;
-		this.themes = themes;
-		ThemeResult.calculatePercentage(themes);
-	}
-	
 	public void addToken(String themeName, String tokenName, long count){
-		ThemeResult theme = themes.stream().filter(t -> t.getName().equals(themeName))
-									  		.findFirst().orElse(null);
+		ThemeResult theme = themes.stream()
+								  .filter(t -> t.getName().equals(themeName))
+						  		  .findFirst().orElse(null);
 		if(theme == null){
 			theme = new ThemeResult(themeName);
 			themes.add(theme);
