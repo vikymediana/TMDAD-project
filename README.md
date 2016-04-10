@@ -3,6 +3,21 @@ Repository for Project in Course: "Technologies and Models for Distributed Appli
 
 This is a group project done for the MSc in Computer Engineering at University of Zaragoza.
 
+## Workflow
+
+- Each of the members forks from jgbarcos github.
+- Then we proceed to work individually pushing changes to our github.
+- Whenever you want to make a change available to all, perform a pullrequest to jgbarcos.
+- Whenever you want to get all the available changes, perform a pull from jgbarcos.
+
+The following diagram sumarizes the workflow:
+```
+    ------------github javi-------------
+    |                |                 |         ^ Pullrequest
+    |                |                 |         v Pull
+github rosa     github victoria    github alex
+```
+
 ## Guidelines
 
 Some guidelines to mantain a coherent style between every member:
